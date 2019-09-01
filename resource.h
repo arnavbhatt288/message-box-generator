@@ -8,3 +8,5 @@
 #define IDC_QUES 6
 #define IDC_STOP 7
 
+#define IDI_ICON 8
+

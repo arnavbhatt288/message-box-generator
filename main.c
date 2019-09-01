@@ -18,6 +18,8 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 		{
 			SetDlgItemText(hwnd, IDC_TITLE, "Enter string");
 			SetDlgItemText(hwnd, IDC_STRING, "Enter string");
+    		SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)LoadIcon(NULL, MAKEINTRESOURCE(IDI_ICON)));
+    		SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)LoadIcon(NULL, MAKEINTRESOURCE(IDI_ICON)));
 		}
 		return TRUE;
 
@@ -34,25 +36,25 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
             {
                 case IDC_EXCLA:
 				{
-					MessageBox(NULL, buf1, buf, MB_OK | MB_ICONEXCLAMATION);
+					MessageBox(hwnd, buf1, buf, MB_OK | MB_ICONEXCLAMATION);
 				}
                 break;
 
 				case IDC_INFO:
 				{
-					MessageBox(NULL, buf1, buf, MB_OK | MB_ICONINFORMATION);
+					MessageBox(hwnd, buf1, buf, MB_OK | MB_ICONINFORMATION);
 				}
                 break;
 
                 case IDC_QUES:
 				{
-					MessageBox(NULL, buf1, buf, MB_OK | MB_ICONQUESTION);
+					MessageBox(hwnd, buf1, buf, MB_OK | MB_ICONQUESTION);
 				}
                 break;
 
                 case IDC_STOP:
 				{
-					MessageBox(NULL, buf1, buf, MB_OK | MB_ICONSTOP);
+					MessageBox(hwnd, buf1, buf, MB_OK | MB_ICONSTOP);
 				}
                 break;
 			}
@@ -94,4 +96,3 @@ char* stringprocess(int leng2, HWND hwnd)
 
 	return buf;
 }
-
